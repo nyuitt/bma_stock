@@ -15,22 +15,19 @@ use App\Http\Controllers\StockController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::resource("/stock", StockController::class);
-
-Route::resource("/home", StockController::class);
-
-Route::get('/', function () {
     if (Auth::check()) {
         return redirect('/home');
-    }else{
+    } else {
         return view('welcome');
     }
+});
+
+Auth::routes(['middleware' => 'expiration']); // Aplica o middleware 'expiration' em todas as rotas de autenticação
+
+
+
+Route::middleware(['auth', 'expiration'])->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::resource('/stock', StockController::class);
+
 });

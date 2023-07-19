@@ -22,6 +22,12 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+                                @if($errors->has('login'))
+                                    <div class="alert alert-danger">
+                                        {{ $errors->first('login') }}
+                                    </div>
+                                @endif
+
                             </div>
                         </div>
 
@@ -36,6 +42,11 @@
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
+
+                                @if(session('error'))
+                                    <div class="alert alert-danger">{{ session('error') }}</div>
+                                @endif
+
                             </div>
                         </div>
 

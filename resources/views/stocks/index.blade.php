@@ -14,6 +14,9 @@
                         </a>
                         <br/>
                         <br/>
+                        @if($stocks->isEmpty())
+                            <p>Não há produtos no estoque.</p>
+                        @else
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
@@ -48,6 +51,7 @@
                                 </tbody>
                             </table>
                         </div>
+                        @endif
   
                     </div>
                 </div>

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'is_allowed',
     ];
 
     /**
@@ -41,4 +42,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Determine if the user is allowed.
+     *
+     * @return bool
+     */
+    public function isAllowed()
+    {
+        return $this->is_allowed;
+    }
 }
