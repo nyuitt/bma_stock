@@ -25,6 +25,7 @@
                                         <th>Produto</th>
                                         <th>Preço</th>
                                         <th>Quantidade</th>
+                                        <th>ID</th> <!-- Nova coluna para exibir o ID -->
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -35,6 +36,7 @@
                                         <td>{{ $item->Product }}</td>
                                         <td>R$ {{ $item->Price }}</td>
                                         <td>{{ $item->Amount }}</td>
+                                        <td>{{ $item->id }}</td> <!-- Exibe o ID do produto -->
   
                                         <td>
                                             <a href="{{ url('/stock/' . $item->id) }}" title="Ver Produto"><button class="btn btn-info btn-sm"><i class="fa fa-eye" aria-hidden="true"></i> Ver</button></a>
@@ -43,7 +45,7 @@
                                             <form method="POST" action="{{ url('/stock' . '/' . $item->id) }}" accept-charset="UTF-8" style="display:inline">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}
-                                                <button type="submit" class="btn btn-danger btn-sm" title="Deletar produto" onclick="return confirm("Confirm delete?")"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
+                                                <button type="submit" class="btn btn-danger btn-sm" title="Deletar produto" onclick="return confirm('Confirm delete?')"><i class="fa fa-trash-o" aria-hidden="true"></i> Excluir</button>
                                             </form>
                                         </td>
                                     </tr>

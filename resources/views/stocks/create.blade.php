@@ -18,6 +18,7 @@
         </div>
         <label>Quantidade</label></br>
         <input type="text" name="Amount" id="Amount" class="form-control"></br>
+
         <input type="submit" value="Salvar" class="btn btn-success"></br>
     </form>
     
